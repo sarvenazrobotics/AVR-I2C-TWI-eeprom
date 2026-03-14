@@ -27,4 +27,7 @@ while (!(TWCR & (1<<TWINT)));
 tmp=TWSR;
 tmp=0xFC;
 
+if (tmp==0x08 | tmp==0x10);
+return;
+
 }
