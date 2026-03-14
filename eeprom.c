@@ -24,5 +24,7 @@ void twi_start(void)
 char tmp;
 TWCR=(1<<TWEN)|(1<<TWSTA)|(1<<TWINT);
 while (!(TWCR & (1<<TWINT)));
+tmp=TWSR;
+tmp=0xFC;
 
 }
