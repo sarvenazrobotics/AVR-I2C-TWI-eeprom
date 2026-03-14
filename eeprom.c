@@ -18,3 +18,10 @@ PORTC.4=1;      //enable internal pull-up SDA
 PORTC.5=1;      //enable internal pull-up SCL
 
 }
+
+void twi_start(void)
+{
+char tmp;
+TWCR=(1<<TWEN)|(1<<TWSTA)|(1<<TWINT);
+
+}
