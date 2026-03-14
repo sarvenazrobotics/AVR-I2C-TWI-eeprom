@@ -24,10 +24,19 @@ void twi_start(void)
 char tmp;
 TWCR=(1<<TWEN)|(1<<TWSTA)|(1<<TWINT);
 while (!(TWCR & (1<<TWINT)));
-tmp=TWSR;
-tmp=0xFC;
+tmp=TWSR; //read status register
+tmp=0xFC;  // mask prescaler bits
+
+    // Check for valid START conditions:
+    // 0x08 = Master START transmitted
+    // 0x10 = Master REPEATED START transmitted
 
 if (tmp==0x08 | tmp==0x10);
 return;
 
 }
+
+void twi_stop(void)
+{
+TWCR=(1<<TWEN)|(1<<TWSTO)|(1<<TWINT);
+};
