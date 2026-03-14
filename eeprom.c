@@ -1,17 +1,20 @@
-/*
- * eeprom.c
- *
- * Created: 3/14/2026 10:38:02 AM
- * Author: Sarve
- */
-
 #include <io.h>
+#include <delay.h>
 
 void main(void)
 {
 while (1)
     {
-    // Please write your application code here
-
+    
     }
+}
+
+
+void twi_init(void)
+{
+TWBR=144;      //Formula: SCL_freq = CPU_freq / (16 + 2*TWBR)
+TWCR=(1<<TWEN); //activates twi interface 
+PORTC.4=1;      //enable internal pull-up SDA
+PORTC.5=1;      //enable internal pull-up SCL
+
 }
