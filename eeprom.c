@@ -4,6 +4,9 @@
 void twi_init(void);
 void twi_start(void);
 void twi_stop(void);
+char twi_write(char x);
+char twi_read(char ack);
+
 
 void main(void)
 {
@@ -70,13 +73,14 @@ while(!(TWCR & (1<<TWINT)));
 return TWDR;
 }
 
-void eeprom_write(char data,unsigned int address)
-{
+char eeprom_write(char data,unsigned int address)
+{ char tmp;
 //dummy write
 twi_start();
 twi_write(0xA0);//eeprom adress+write
 twi_write(address>>8); //8 bits high
 twi_write(address);//8 bit low
+twi_write(data);
 twi_stop();
 
 //read
@@ -85,8 +89,5 @@ twi_write(0xA1);
 tmp=twi_read(0);
 twi_stop();
 return tmp;
-
-
-
 }
 
