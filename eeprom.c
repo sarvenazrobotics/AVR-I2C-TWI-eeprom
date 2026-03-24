@@ -58,5 +58,15 @@ if(tmp==0x18||tmp==0x28||tmp==0x40)
 return 1;
 if(tmp==0x20)
 return 0;
-
 }
+
+char twi_read(char ack)
+{
+if(ack==1)
+    TWCR=(1<<TWEN)|(1<<TWINT)|(1<<TWEA);
+else
+    TWCR=(1<<TWEN)|(1<<TWINT);
+while(!(TWCR & (1<<TWINT)));
+return TWDR;
+}
+
