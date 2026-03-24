@@ -19,3 +19,11 @@ This project implements bit-banged TWI (Two-Wire Interface) communication for AV
 - Handling I2C start/stop conditions and ACK/NACK responses
 - Configuring I2C clock speed for reliable communication
 Ideal for data logging, configuration storage, or retaining settings across power cycles.
+
+ ## Features
+- Byte-level R/W: Read/write single bytes to any 16-bit EEPROM address
+- Configurable Speed: Adjust TWBR to match your CPU frequency
+- Pull-up Support: Enables internal pull-ups on SDA/SCL pins
+- Modular Design: Clean separation: TWI layer ↔ EEPROM layer
+- Lightweight: No external dependencies beyond CodeVisionAVR libs
+- Status Checking: Returns success/fail based on I2C status codes
