@@ -73,8 +73,8 @@ while(!(TWCR & (1<<TWINT)));
 return TWDR;
 }
 
-char eeprom_write(char data,unsigned int address)
-{ char tmp;
+void eeprom_write(char data,unsigned int address)
+{ 
 //dummy write
 twi_start();
 twi_write(0xA0);//eeprom adress+write
@@ -82,6 +82,21 @@ twi_write(address>>8); //8 bits high
 twi_write(address);//8 bit low
 twi_write(data);
 twi_stop();
+delay_ms(10);}
+
+char eeprom_read(unsigned int address)
+{
+char tmp;
+//dummy write
+twi_start();
+twi_write(0xA0);//eeprom adress+write
+twi_write(address>>8); //8 bits high
+twi_write(address);//8 bit low
+twi_stop();
+
+
+
+
 
 //read
 twi_start();
