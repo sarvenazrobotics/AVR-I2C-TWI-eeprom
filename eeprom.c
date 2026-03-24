@@ -72,9 +72,19 @@ return TWDR;
 
 void eeprom_write(char data,unsigned int address)
 {
+//dummy write
 twi_start();
 twi_write(0xA0);//eeprom adress+write
-twi_write(address<<8);
+twi_write(address>>8); //8 bits high
+twi_write(address);//8 bit low
+twi_stop();
+
+//read
+twi_start();
+twi_write(0xA1);
+tmp=twi_read(0);
+twi_stop();
+return tmp;
 
 
 
