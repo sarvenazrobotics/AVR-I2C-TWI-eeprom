@@ -6,6 +6,9 @@ void twi_start(void);
 void twi_stop(void);
 char twi_write(char x);
 char twi_read(char ack);
+void twi_stop(void);
+void eeprom_write(char data,unsigned int address);
+char eeprom_read(unsigned int address);
 
 
 void main(void)
