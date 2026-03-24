@@ -70,3 +70,13 @@ while(!(TWCR & (1<<TWINT)));
 return TWDR;
 }
 
+void eeprom_write(char data,unsigned int address)
+{
+twi_start();
+twi_write(0xA0);//eeprom adress+write
+twi_write(address<<8);
+
+
+
+}
+
