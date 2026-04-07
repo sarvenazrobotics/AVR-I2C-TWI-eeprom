@@ -50,4 +50,10 @@ Direct interaction with AVR registers.
 
 ## Summary
 This project delivers a lightweight, reliable, and easy-to-integrate I2C EEPROM driver for AVR microcontrollers using the CodeVisionAVR environment. By abstracting the complexities of the TWI hardware registers and I2C protocol timing, it allows developers to store and retrieve non-volatile data with just a single function call.
+
+## Project Author
+This project was designed, implemented, and tested by **Sarvenaz Ashoori**.
+
+For any questions, suggestions, or issues regarding this project, feel free to contact:
+**SarvenazAshoori2000@gmail.com**
     
