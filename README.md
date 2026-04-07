@@ -36,20 +36,3 @@ sequenceDiagram
     participant BUS as I2C Bus
     participant EEPROM as EEPROM Slave
     
-    AVR->>BUS: [START Condition]
-    AVR->>BUS: Send 0xA0 (Device Addr + WRITE)
-    BUS->>EEPROM: Forward address
-    EEPROM-->>BUS: ACK (pull SDA low)
-    BUS-->>AVR: ACK received
-    
-    AVR->>BUS: Send Address High Byte (0x00)
-    EEPROM-->>AVR: ACK
-    
-    AVR->>BUS: Send Address Low Byte (0x14 = decimal 20)
-    EEPROM-->>AVR: ACK
-    
-    AVR->>BUS: Send Data Byte (0xE3)
-    EEPROM-->>AVR: ACK
-    
-    AVR->>BUS: [STOP Condition]
-    Note right of EEPROM: Internal write cycle<br/>(~5-10ms)
