@@ -41,4 +41,10 @@ Direct interaction with AVR registers.
 - twi_init(): Configures TWBR, TWCR, and PORTC.
 - twi_start(), twi_stop(): Controls I2C bus conditions.
 - twi_write(), twi_read(): Handles byte-level data transfer and status checks.
+
+
+2. Device Driver Layer
+- Specific logic for the EEPROM chip.
+- eeprom_write(): Handles address splitting, device addressing, and write delays.
+- eeprom_read(): Manages the two-phase read protocol (dummy write + read).
     
