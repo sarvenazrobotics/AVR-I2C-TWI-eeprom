@@ -3,7 +3,6 @@
 -  [Overview](#overview)
 -  [Features](#features)
 -  [How It Works](#how-it-works)
--  [Usage](#usage)
 - [Code Structure](#code-structure)
 - [Summary](#summary)
 - [Project Author](#project-author)
