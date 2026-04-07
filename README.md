@@ -47,4 +47,8 @@ Direct interaction with AVR registers.
 - Specific logic for the EEPROM chip.
 - eeprom_write(): Handles address splitting, device addressing, and write delays.
 - eeprom_read(): Manages the two-phase read protocol (dummy write + read).
+
+3. Application Layer
+User-defined logic.
+- main(): Calls driver functions to store/retrieve data.
     
